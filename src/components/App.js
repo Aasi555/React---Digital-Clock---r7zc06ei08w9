@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import "../styles/App.css";
 
-const App = () => {
-  setInterval(Update, 1000);
-  const date = new Date();
-  const time = date.toLocaleString();
-  const [now, setNow] = useState(time);
+function App() {
+  setInterval(updateTime, 1000);
 
-  function Update() {
-    setNow(time);
+  const now = new Date().toLocaleString();
+
+  const [time, setTime] = useState(now);
+
+  function updateTime() {
+    const newTime = new Date().toLocaleString();
+    setTime(newTime);
   }
 
   return (
-    <div id="main">
-      <div className="date-time">
-        <h1>{now}</h1>
-      </div>
+    <div className="date-time">
+      <h1>{time}</h1>
+     
     </div>
   );
-};
+}
 
 export default App;
